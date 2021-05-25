@@ -1,14 +1,14 @@
-create table user
+create table users
 (
-    pk_user int unsigned auto_increment not null unique primary key,
-    name    tinytext                    not null
+    id   int unsigned auto_increment not null unique primary key,
+    name tinytext                    not null
 );
 
-create table mood
+create table moods
 (
-    score     tinyint      not null,
-    timestamp datetime     not null,
-    fk_user   int unsigned not null,
+    score     decimal(1, 0) not null,
+    timestamp datetime      not null,
+    user_id   int unsigned  not null,
     constraint `fk_mood_user`
-        foreign key (fk_user) references user (pk_user)
+        foreign key (user_id) references users (id)
 );
