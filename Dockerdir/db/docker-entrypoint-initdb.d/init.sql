@@ -11,4 +11,6 @@ create table moods
     user_id   int unsigned  not null,
     constraint `fk_mood_user`
         foreign key (user_id) references users (id)
+            on delete no action
+            on update no action
 );
